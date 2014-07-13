@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6185.7" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+    <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6181.2"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController id="vXZ-lx-hvc" customClass="RootViewController" customModule="Accessibility_Beacon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
+                        <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jKX-Br-F7D" userLabel="Onboarding Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                                <connections>
+                                    <segue destination="Niv-4v-OCO" kind="embed" id="3aM-oJ-HPP"/>
+                                </connections>
+                            </containerView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6gg-Q3-Zci" userLabel="Location Detail Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                                <connections>
+                                    <segue destination="XL3-TK-9wv" kind="embed" identifier="EmbedLocationDetail" id="PbD-nm-a1J"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jKX-Br-F7D" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="D5E-7P-WPN"/>
+                            <constraint firstItem="jKX-Br-F7D" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="QfM-Uq-fXL"/>
+                            <constraint firstAttribute="trailing" secondItem="6gg-Q3-Zci" secondAttribute="trailing" id="mSI-6o-pbx"/>
+                            <constraint firstItem="6gg-Q3-Zci" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="sfv-NF-80l"/>
+                            <constraint firstItem="6gg-Q3-Zci" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="sqV-nh-pBV"/>
+                            <constraint firstAttribute="trailing" secondItem="jKX-Br-F7D" secondAttribute="trailing" id="wEc-Ep-ayz"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="jKX-Br-F7D" secondAttribute="bottom" id="xEa-vu-h8j"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="6gg-Q3-Zci" secondAttribute="bottom" id="zag-Z3-XOc"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="locationDetailContainerView" destination="6gg-Q3-Zci" id="EG0-jm-Uhz"/>
+                        <outlet property="onboardingContainerView" destination="jKX-Br-F7D" id="aNf-gj-IQh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Welcome-->
+        <scene sceneID="bME-zN-dlN">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="Rq5-IB-ubx" customClass="WelcomeViewController" customModule="Accessibility_Beacon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jqJ-ha-wN0"/>
+                        <viewControllerLayoutGuide type="bottom" id="1VP-dn-Xm5"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="qAN-Be-jiL">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xhf-Sw-lg8">
+                                <rect key="frame" x="0.0" y="435" width="480" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="4DA-uC-Tuf"/>
+                                </constraints>
+                                <state key="normal" title="Request Location Permission">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="requestLocationPermission" destination="Rq5-IB-ubx" eventType="touchUpInside" id="vo2-zt-0ID"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="440" translatesAutoresizingMaskIntoConstraints="NO" id="UD3-y8-gIv">
+                                <rect key="frame" x="20" y="124" width="440" height="111"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="111" id="RMd-C7-Zeq"/>
+                                </constraints>
+                                <string key="text">The accessibility beacon app can let you know when you're near a location that has accessibility beacons. Tap the button at the bottom of the screen to allow this app to monitor your location.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Xhf-Sw-lg8" secondAttribute="trailing" id="4cz-rd-cDt"/>
+                            <constraint firstItem="UD3-y8-gIv" firstAttribute="top" secondItem="jqJ-ha-wN0" secondAttribute="bottom" constant="80" id="9Sk-PR-9dV"/>
+                            <constraint firstItem="UD3-y8-gIv" firstAttribute="leading" secondItem="qAN-Be-jiL" secondAttribute="leading" constant="20" id="WX4-lC-6SZ"/>
+                            <constraint firstItem="Xhf-Sw-lg8" firstAttribute="top" secondItem="UD3-y8-gIv" secondAttribute="bottom" constant="200" id="Z71-B8-Xlf"/>
+                            <constraint firstAttribute="trailing" secondItem="UD3-y8-gIv" secondAttribute="trailing" constant="20" id="gTs-7B-FGA"/>
+                            <constraint firstItem="1VP-dn-Xm5" firstAttribute="top" secondItem="Xhf-Sw-lg8" secondAttribute="bottom" id="hSH-ia-eGz"/>
+                            <constraint firstItem="Xhf-Sw-lg8" firstAttribute="leading" secondItem="qAN-Be-jiL" secondAttribute="leading" id="wOI-Vg-td0"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Welcome" id="xgx-0E-k1m"/>
+                    <connections>
+                        <outlet property="welcomeLabel" destination="UD3-y8-gIv" id="Rq7-ZS-9wO"/>
+                        <segue destination="9ut-sB-LhF" kind="show" identifier="ShowInstructions" id="rMh-cX-cyX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s2A-fP-HOR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1530" y="-312"/>
+        </scene>
+        <!--Instructions View Controller-->
+        <scene sceneID="WUu-ln-0Qe">
+            <objects>
+                <viewController id="9ut-sB-LhF" customClass="InstructionsViewController" customModule="Accessibility_Beacon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CpY-r1-LDF"/>
+                        <viewControllerLayoutGuide type="bottom" id="fIs-UT-xk2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bx7-NE-dqr">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="440" translatesAutoresizingMaskIntoConstraints="NO" id="fVc-Ul-c5F">
+                                <rect key="frame" x="20" y="118" width="440" height="117"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="117" id="PSM-hs-Vf2"/>
+                                </constraints>
+                                <string key="text">When your arrive at a location that has an accessibility beacon you'll receive a notification telling you about the location. Launch the app to find out more about the location and the services available.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t9a-Mw-UUq">
+                                <rect key="frame" x="0.0" y="435" width="480" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="45" id="MeM-L3-Oyh"/>
+                                    <constraint firstAttribute="height" constant="45" id="dah-F3-E53"/>
+                                </constraints>
+                                <state key="normal" title="Ok, I got it">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="gotIt" destination="9ut-sB-LhF" eventType="touchUpInside" id="0hX-IL-Ofw"/>
+                                    <action selector="requestLocationPermission" destination="Rq5-IB-ubx" eventType="touchUpInside" id="thf-PN-EcM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="t9a-Mw-UUq" secondAttribute="trailing" id="D73-C3-1en"/>
+                            <constraint firstItem="fVc-Ul-c5F" firstAttribute="top" secondItem="CpY-r1-LDF" secondAttribute="bottom" constant="118" id="Il0-0K-Gdf"/>
+                            <constraint firstItem="fIs-UT-xk2" firstAttribute="top" secondItem="t9a-Mw-UUq" secondAttribute="bottom" id="Rxk-Z9-pXP"/>
+                            <constraint firstItem="fIs-UT-xk2" firstAttribute="top" secondItem="fVc-Ul-c5F" secondAttribute="bottom" constant="245" id="Z5a-er-F4A"/>
+                            <constraint firstItem="fVc-Ul-c5F" firstAttribute="leading" secondItem="bx7-NE-dqr" secondAttribute="leading" constant="20" id="h4h-R9-nKv"/>
+                            <constraint firstItem="t9a-Mw-UUq" firstAttribute="leading" secondItem="bx7-NE-dqr" secondAttribute="leading" id="mCU-aS-bD4"/>
+                            <constraint firstAttribute="trailing" secondItem="fVc-Ul-c5F" secondAttribute="trailing" constant="20" id="wud-vh-8g0"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Etm-c2-DEJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2194" y="-312"/>
+        </scene>
+        <!--Location Detail View Controller-->
+        <scene sceneID="otM-nZ-4XS">
+            <objects>
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="XL3-TK-9wv" customClass="LocationDetailViewController" customModule="Accessibility_Beacon" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="q4e-Sv-riV"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ek6-BB-Sg7"/>
+                    </layoutGuides>
+                    <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="14R-IM-1S5">
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FKD-AL-IeH">
+                                <rect key="frame" x="20" y="57" width="440" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="kns-NP-xnO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(location address)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddt-Lh-0Fd">
+                                <rect key="frame" x="20" y="86" width="440" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="GKs-tz-9ta"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description of location" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="440" translatesAutoresizingMaskIntoConstraints="NO" id="whX-O8-hna">
+                                <rect key="frame" x="20" y="143" width="440" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="FKD-AL-IeH" firstAttribute="leading" secondItem="14R-IM-1S5" secondAttribute="leading" constant="20" id="I3M-Pd-4K8"/>
+                            <constraint firstItem="whX-O8-hna" firstAttribute="leading" secondItem="14R-IM-1S5" secondAttribute="leading" constant="20" id="Jkr-ce-bsh"/>
+                            <constraint firstAttribute="trailing" secondItem="FKD-AL-IeH" secondAttribute="trailing" constant="20" id="UnT-xp-aXp"/>
+                            <constraint firstAttribute="trailing" secondItem="whX-O8-hna" secondAttribute="trailing" constant="20" id="ZQT-kJ-CcP"/>
+                            <constraint firstItem="Ddt-Lh-0Fd" firstAttribute="top" secondItem="FKD-AL-IeH" secondAttribute="bottom" constant="8" id="art-xW-44o"/>
+                            <constraint firstAttribute="trailing" secondItem="Ddt-Lh-0Fd" secondAttribute="trailing" constant="20" id="cDQ-Ba-zAB"/>
+                            <constraint firstItem="FKD-AL-IeH" firstAttribute="top" secondItem="q4e-Sv-riV" secondAttribute="bottom" constant="57" id="pt5-86-5X2"/>
+                            <constraint firstItem="Ddt-Lh-0Fd" firstAttribute="leading" secondItem="14R-IM-1S5" secondAttribute="leading" constant="20" id="rRo-bP-Uxd"/>
+                            <constraint firstItem="whX-O8-hna" firstAttribute="top" secondItem="Ddt-Lh-0Fd" secondAttribute="bottom" constant="36" id="wqu-9n-NiA"/>
+                            <constraint firstItem="Ek6-BB-Sg7" firstAttribute="top" relation="greaterThanOrEqual" secondItem="whX-O8-hna" secondAttribute="bottom" constant="10" id="yqG-q3-9uj"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <connections>
+                        <outlet property="addressLabel" destination="Ddt-Lh-0Fd" id="6oX-HS-eb8"/>
+                        <outlet property="descriptionLabel" destination="whX-O8-hna" id="9cX-1u-Yh2"/>
+                        <outlet property="nameLabel" destination="FKD-AL-IeH" id="s1V-ZJ-QAP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCh-o5-N15" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="443"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hd4-8J-uiF">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="Niv-4v-OCO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Rz1-vd-fyg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Rq5-IB-ubx" kind="relationship" relationship="rootViewController" id="rxt-Z8-wlF"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="acX-8o-h0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="838" y="-312"/>
+        </scene>
+    </scenes>
+</document>
